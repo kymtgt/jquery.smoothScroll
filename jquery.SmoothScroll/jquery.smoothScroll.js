@@ -10,7 +10,7 @@
  * License: GPL2
  *
  * easing : http://jqueryui.com/demos/effect/easing.html
- * @param	{ duration, easing )
+ * @param	{ duration, easing, offset )
  *
  * Copyright 2013 Takashi Kitajima (email : inc@2inc.org)
  *
@@ -32,7 +32,8 @@
 
 		var defaults = {
 			duration : 1000,
-			easing   : 'easeOutQuint'
+			easing   : 'easeOutQuint',
+			offest   : 0
 		};
 		params = $.extend( defaults, params );
 
@@ -68,7 +69,7 @@
 					return;
 				targetBody.animate(
 					{
-						scrollTop: offset.top
+						scrollTop: offset.top - params.offset
 					},
 					params.duration,
 					params.easing,
@@ -90,7 +91,8 @@ jQuery( function( $ ) {
 	$( window ).on( 'load', function() {
 		$( 'a[href^="#"]' ).SmoothScroll( {
 			duration : 1000,
-			easing : 'easeOutQuint'
+			easing : 'easeOutQuint',
+			offset : 0
 		} );
 	} );
 
