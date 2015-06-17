@@ -74,7 +74,7 @@
 					params.duration,
 					params.easing,
 					function() {
-						location.hash = targetHash;
+						if(params.toHash) location.hash = targetHash;
 					}
 				);
 
@@ -92,7 +92,8 @@ jQuery( function( $ ) {
 		$( 'a[href^="#"]' ).SmoothScroll( {
 			duration : 1000,
 			easing : 'easeOutQuint',
-			offset : 0
+			offset : 0,
+			toHash : false
 		} );
 	} );
 
